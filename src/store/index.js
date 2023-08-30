@@ -1,9 +1,13 @@
 import { createStore } from 'vuex'
+import { useDisplay } from 'vuetify'
 
-export default createStore({
+export default createStore({ 
   state: {
   },
   getters: {
+    getIsMobile () {
+      return useDisplay().mobile.value
+    }
   },
   mutations: {
   },

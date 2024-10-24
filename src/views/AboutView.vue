@@ -2,6 +2,9 @@
   <v-container fluid>
     <v-form ref="form" lazy-validation>
       <v-row>
+        <v-col cols="12">
+          <v-textarea v-model="content" label="Content" :rules="rules" required></v-textarea>
+        </v-col>
         <v-col cols="12" md="6">
           <v-text-field v-model="firstname" label="Firstname" :rules="rules" required></v-text-field>
         </v-col>
@@ -42,6 +45,7 @@
 <script setup>
 import { ref } from 'vue'
 
+const content = ref(null)
 const firstname = ref(null)
 const lastname = ref(null)
 const email = ref(null)
@@ -51,6 +55,7 @@ const skill = ref(null)
 const file = ref(null)
 const introdution = ref(null)
 const treatment = ref(null)
+const form = ref()
     
 const ageOption = [
   {key: 20, value: '20~30'},
@@ -71,6 +76,6 @@ const skillOptions = [
 const rules = [ v => !!v || 'This is required' ]
 
 const submit = () => {
-  this.$refs.form.validate()
+  form.value.validate()
 }
 </script>
